@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monet</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+
+<body>
+
+
+    <div class="navbar">
+
+        <label for="home-link" class="page-logo"></label>
+        <a href="" class="navbar-link" id="home-link">Monet</a>
+        <a href="" class="navbar-link">History</a>
+        <a href="" class="navbar-link">Collections</a>
+
+
+    </div>
+
+
+    <div class="container">
+
+
+
+        <form method="POST" action="/" enctype="multipart/form-data">
+            <div class="form">
+                <input name="file" id="entry_value" ref="fileInput" type="file" onchange="getFileName()">
+                <div class="form-container">
+                    <img src="{{ url_for('static', filename='upload.png') }}" alt="upload" width="7%" class="mx-2">
+
+                    Upload your files here or
+                    <button class="btn bg-color-dblue btn-primary px-4 py-3">Browse</button>
+                    <br>
+                    <span id="fileName" class="text-primary ">
+
+                    </span>
+                </div>
+
+                <div class="generate-container">
+                    <label for="sumbmit-button-generate" class="generate-button">Generate</label>
+                    <input type="submit" value="Submit" id="sumbmit-button-generate" style="display: none;">
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="show-results">
+
+        </div>
+
+    </div>
+
+    <div>
+        <h2>Input Photo</h2>
+        <img src="{{ url_for('static', filename=input_image) }}" alt="Input Photo">
+    </div>
+    <div>
+        <h2>Monet-esque</h2>
+        <img src="{{ url_for('static', filename='output_image') }}" alt="Monet-esque">
+    </div>
+
+</body>
+
+
+<script>
+
+    function getFileName() {
+        var x = document.getElementById('entry_value')
+        document.getElementById('fileName').innerHTML = x.value.split('\\').pop()
+    }
+</script>
+
+
+</html>
