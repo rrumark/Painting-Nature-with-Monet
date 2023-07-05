@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monet</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+
+    <div class="navbar">
+
+        <label for="home-link" class="page-logo"></label>
+        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">Monet</a>
+        <a href="{{ url_for('history_func') }}" class="navbar-link">History</a>
+
+    </div>
+
+    <h1>Bu history sayfası</h1>
+
+   
+
+
+</body>
+</html>

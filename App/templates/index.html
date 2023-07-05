@@ -7,7 +7,7 @@
     <title>Monet</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -17,10 +17,8 @@
     <div class="navbar">
 
         <label for="home-link" class="page-logo"></label>
-        <a href="" class="navbar-link" id="home-link">Monet</a>
-        <a href="" class="navbar-link">History</a>
-        <a href="" class="navbar-link">Collections</a>
-
+        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">Monet</a>
+        <a href="{{ url_for('history_func') }}" class="navbar-link">History</a>
 
     </div>
 
@@ -30,17 +28,22 @@
 
 
         <form method="POST" action="/" enctype="multipart/form-data">
+
             <div class="form">
                 <input name="file" id="entry_value" ref="fileInput" type="file" onchange="getFileName()">
                 <div class="form-container">
                     <img src="{{ url_for('static', filename='upload.png') }}" alt="upload" width="7%" class="mx-2">
 
                     Upload your files here or
+
                     <button class="btn bg-color-dblue btn-primary px-4 py-3">Browse</button>
+
                     <br>
-                    <span id="fileName" class="text-primary ">
+
+                    <span id="fileName" class="text-primary">
 
                     </span>
+
                 </div>
 
                 <div class="generate-container">
@@ -51,24 +54,46 @@
 
             </div>
 
+
         </form>
 
-
+        {% if showKey %}
         <div class="show-results">
+
+
+            <div class="input-image-container">
+                <div class="result-title">Input Photo</div>
+                <img src="{{ url_for('static', filename=input_image) }}" alt="Input Photo">
+            </div>
+
+            <div class="to-text">
+                To
+            </div>
+
+            <div class="output-image-container">
+                <div class="result-title">Monet Photo</div>
+                <img src="{{ url_for('static', filename=output_image) }}" alt="Monet-esque">
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
+            <div class="button-container">
+                <button id="backButton" class="back-button">Back</button>
+
+            </div>
 
         </div>
 
     </div>
-
-    <div>
-        <h2>Input Photo</h2>
-        <img src="{{ url_for('static', filename=input_image) }}" alt="Input Photo">
-    </div>
-    <div>
-        <h2>Monet-esque</h2>
-        <img src="{{ url_for('static', filename='output_image') }}" alt="Monet-esque">
-    </div>
-
 </body>
 
 
@@ -78,6 +103,41 @@
         var x = document.getElementById('entry_value')
         document.getElementById('fileName').innerHTML = x.value.split('\\').pop()
     }
+
+
+    // Modalı açmak için JavaScript fonksiyonu
+    function openModal(imageURL) {
+        var modal = document.getElementById("myModal");
+        var modalImage = document.getElementById("modalImage");
+
+        // Modal içerisindeki görüntüyü ayarla
+        modalImage.src = imageURL;
+
+        // Modalı göster
+        modal.style.display = "block";
+    }
+
+    // Modalı kapatmak için JavaScript fonksiyonu
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    // Her bir img elementine click event listener ekle
+    var images = document.querySelectorAll(".input-image-container img, .output-image-container img");
+    images.forEach(function (image) {
+        image.addEventListener("click", function () {
+            openModal(this.src);
+        });
+    });
+
+    // Modalın kapatılması için close elementine click event listener ekle
+    var closeBtn = document.querySelector(".close");
+    closeBtn.addEventListener("click", closeModal);
+
+    // Back butonuna click event listener ekle
+    var backButton = document.getElementById("backButton");
+    backButton.addEventListener("click", closeModal);
 </script>
 
 
