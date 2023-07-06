@@ -79,13 +79,21 @@ def index_func():
 @app.route("/history", methods=["GET", "POST"])
 def history_func():
 
+    inputFiles = list()
+    outputFiles = list()
 
-    inputFiles = sorted(list_files_in_folder(DOWNLOAD_FOLDER_INPUT))
-    outputFiles = sorted(list_files_in_folder(DOWNLOAD_FOLDER_OUTPUT))
+    inputNames = sorted(list_files_in_folder(DOWNLOAD_FOLDER_INPUT))
+    outputNames = sorted(list_files_in_folder(DOWNLOAD_FOLDER_OUTPUT))
+    
+    for i, item in enumerate(list_files_in_folder(DOWNLOAD_FOLDER_OUTPUT)):
+
+        inputFiles.append(os.path.join(STATIC_DOWNLOAD_FOLDER_INPUT, inputNames[i]))
+        outputFiles.append(os.path.join(STATIC_DOWNLOAD_FOLDER_OUTPUT, outputNames[i]))
+    
+    print(inputFiles)
+    print(outputFiles)
    
-
-    return render_template("history.html",inputFiles = inputFiles, outputFiles = outputFiles)
-
+    return render_template("history.html",inputFiles = inputFiles, outputFiles = outputFiles, fileSize = len(inputFiles))
 
 
 
@@ -104,12 +112,4 @@ def history_func():
 
 
 
-# @app.route("/", methods=["GET", "POST"])
-# def index():
-#     if request.method == "POST":
-#         file = request.files["file"]
 
-#         print(file)
-#         return render_template('index.html')
-
-#     return render_template('index.html')

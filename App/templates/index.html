@@ -17,7 +17,7 @@
     <div class="navbar">
 
         <label for="home-link" class="page-logo"></label>
-        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">Monet</a>
+        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link" style="color: #cfcc13c2;">Monet</a>
         <a href="{{ url_for('history_func') }}" class="navbar-link">History</a>
 
     </div>
@@ -63,16 +63,16 @@
 
             <div class="input-image-container">
                 <div class="result-title">Input Photo</div>
-                <img src="{{ url_for('static', filename=input_image) }}" alt="Input Photo">
+                <img src="{{ url_for('static', filename=input_image) }}" alt="Input Photo" class="result-image-class">
             </div>
 
             <div class="to-text">
-                To
+                to
             </div>
 
             <div class="output-image-container">
                 <div class="result-title">Monet Photo</div>
-                <img src="{{ url_for('static', filename=output_image) }}" alt="Monet-esque">
+                <img src="{{ url_for('static', filename=output_image) }}" alt="Monet-esque" class="result-image-class">
             </div>
 
         </div>

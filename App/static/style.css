@@ -1,3 +1,15 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -24,6 +36,10 @@ body {
     text-decoration: none;
     color: white;
     margin-left: 15px;
+}
+
+.navbar-link:hover {
+    color: lightgray;
 }
 
 .page-logo {
@@ -101,7 +117,7 @@ body {
     font-size: 16px;
 }
 
-div img {
+.result-image-class {
     position: relative;
     top: 30px;
     left: -10px;
@@ -214,7 +230,7 @@ div img {
 
 .modal-content img {
     width: 100%;
-    height: auto;
+    height: a uto;
     margin-top: -90px;
     margin-left: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -256,3 +272,28 @@ div img {
 
 
 /* History */
+.history-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: 10px 30% 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    height: 280px;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.history-container div {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.history-image {
+    max-height: 255px;
+    width: 255px;
+    flex-shrink: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 5px;
+}

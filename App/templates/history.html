@@ -7,6 +7,7 @@
     <title>Monet</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
@@ -17,14 +18,33 @@
 
         <label for="home-link" class="page-logo"></label>
         <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">Monet</a>
-        <a href="{{ url_for('history_func') }}" class="navbar-link">History</a>
+        <a href="{{ url_for('history_func') }}" class="navbar-link" style="color: #cfcc13c2;">History</a>
 
     </div>
 
-    <h1>Bu history sayfası</h1>
+    <br>
+    <br>
 
-   
+    {% for i in range(fileSize) %}
+
+    <div class="history-container">
+        <div>
+            <div></div>
+            <img src="{{ url_for('static', filename=inputFiles[i]) }}" alt="Monet-esque" class="history-image">
+        </div>
 
 
+        <div class="to-text">
+            to
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename=outputFiles[i]) }}" alt="Monet-esque" class="history-image">
+        </div>
+
+    </div>
+
+    {% endfor %}
+    <br><br><br>
 </body>
+
 </html>
