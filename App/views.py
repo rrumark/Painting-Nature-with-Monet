@@ -90,10 +90,9 @@ def history_func():
         inputFiles.append(os.path.join(STATIC_DOWNLOAD_FOLDER_INPUT, inputNames[i]))
         outputFiles.append(os.path.join(STATIC_DOWNLOAD_FOLDER_OUTPUT, outputNames[i]))
     
-    print(inputFiles)
-    print(outputFiles)
+    fileKey = True if len(inputNames) > 0 else False
    
-    return render_template("history.html",inputFiles = inputFiles, outputFiles = outputFiles, fileSize = len(inputFiles))
+    return render_template("history.html",inputFiles = inputFiles, outputFiles = outputFiles, fileSize = len(inputFiles), fileKey = fileKey)
 
 
 

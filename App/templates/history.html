@@ -16,14 +16,16 @@
 
     <div class="navbar">
 
-        <label for="home-link" class="page-logo"></label>
-        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">Monet</a>
-        <a href="{{ url_for('history_func') }}" class="navbar-link" style="color: #cfcc13c2;">History</a>
+        <label for="home-link" class="page-logo"> <img src="{{ url_for('static', filename='logo.png') }}"  class="logo-image"></label>
+        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link">MONET</a>
+        <a href="{{ url_for('history_func') }}" class="navbar-link" style="font-weight: bold; color: #333333;">History</a>
 
     </div>
 
     <br>
     <br>
+
+    {%  if fileKey %}
 
     {% for i in range(fileSize) %}
 
@@ -44,6 +46,14 @@
     </div>
 
     {% endfor %}
+
+    {% else %}
+
+        <div style="font-size: 40px; margin: 200px 25%;  text-align: center; font-weight: bold; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 10px; padding: 50px;">
+            HISTORY NOT FOUND. <br> PLEASE <a style="text-decoration: none; color: darkgreen;" href="{{ url_for('index_func') }}">CLICK</a> FOR GENERATE.
+        </div>
+
+    {% endif %}
     <br><br><br>
 </body>
 

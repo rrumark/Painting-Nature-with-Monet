@@ -16,8 +16,8 @@
 
     <div class="navbar">
 
-        <label for="home-link" class="page-logo"></label>
-        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link" style="color: #cfcc13c2;">Monet</a>
+        <label for="home-link" class="page-logo"> <img src="{{ url_for('static', filename='logo.png') }}"  class="logo-image"></label>
+        <a href="{{ url_for('index_func') }}" class="navbar-link" id="home-link" style="font-weight: bold; color: #333333;">MONET</a>
         <a href="{{ url_for('history_func') }}" class="navbar-link">History</a>
 
     </div>
@@ -32,7 +32,7 @@
             <div class="form">
                 <input name="file" id="entry_value" ref="fileInput" type="file" onchange="getFileName()">
                 <div class="form-container">
-                    <img src="{{ url_for('static', filename='upload.png') }}" alt="upload" width="7%" class="mx-2">
+                    <img src="{{ url_for('static', filename='upload.png') }}" alt="upload" width="7%" class="input-image">
 
                     Upload your files here or
 
