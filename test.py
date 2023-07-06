@@ -10,7 +10,7 @@ from utils import *
 loaded_model = tf.keras.models.load_model(model_path)
 
 # Path to the input image
-input_image_path = 'int/12.jpg'
+input_image_path = 'input.jpg'
 
 def process_input_image(image_path):
     image = tf.io.read_file(image_path)
@@ -29,7 +29,7 @@ prediction = loaded_model(input_image, training=False)[0].numpy()
 prediction = (prediction * 127.5 + 127.5).astype(np.uint8)
 
 # Save image
-output_image_path = 'Out/o1.jpg'
+output_image_path = 'output.jpg'
 plt.imsave(output_image_path, prediction)
 
 print(f"Prediction saved as {output_image_path}")

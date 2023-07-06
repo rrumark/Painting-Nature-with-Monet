@@ -192,6 +192,7 @@ body {
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 5px;
+    margin-top: 90px;
 }
 
 .result-title {
@@ -242,7 +243,7 @@ body {
 .modal-content img {
     width: 100%;
     height: a uto;
-    margin-top: -90px;
+    /* margin-top: -190px; */
     margin-left: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 5px;
