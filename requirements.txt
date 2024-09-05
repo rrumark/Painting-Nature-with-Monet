@@ -79,5 +79,5 @@ typeguard==2.13.3
 typing_extensions==4.7.0
 urllib3==1.26.16
 wcwidth==0.2.6
-Werkzeug==2.3.6
+werkzeug>=3.0.3
 wrapt==1.14.1
